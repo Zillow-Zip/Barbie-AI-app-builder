@@ -4,12 +4,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev --port 3000",
-    "build": "vite build"
+    "build": "vite build",
+    "start": "node server-render.js"
   },
   "dependencies": {
+    "express": "^4.21.0",
     "@netlify/identity": "^1.0.0",
     "@tailwindcss/vite": "^4.0.6",
-    "@tanstack/ai": "^0.10.2",
+    "@tanstack/ai": "^0.11.0",
     "@tanstack/ai-anthropic": "^0.7.3",
     "@tanstack/ai-client": "^0.7.9",
     "@tanstack/ai-gemini": "^0.8.7",

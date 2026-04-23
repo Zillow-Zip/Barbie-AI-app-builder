@@ -1,0 +1,31 @@
+name: Deploy to Render
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Trigger Render deployment
+        run: |
+          curl -X POST https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploys \
+            -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "clearCache": false
+            }'
+      
+      - name: Wait for deployment
+        run: sleep 30
+      
+      - name: Check deployment status
+        run: |
+          echo "Deployment triggered successfully!"
+          echo "Monitor your deployment at: https://dashboard.render.com/services/${{ secrets.RENDER_SERVICE_ID }}"
