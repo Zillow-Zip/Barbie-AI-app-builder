@@ -4,7 +4,7 @@ services:
     runtime: node
     region: oregon
     plan: free
-    buildCommand: pnpm install --legacy-peer-deps && pnpm build
+    buildCommand: pnpm install --no-strict-peer-dependencies && pnpm build
     startCommand: pnpm start
     envVars:
       - key: NODE_ENV
