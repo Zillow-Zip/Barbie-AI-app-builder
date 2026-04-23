@@ -1,0 +1,13 @@
+@import "tailwindcss" source("../");
+@import "highlight.js/styles/github.css";
+@source "../../../node_modules/streamdown/dist/*.js";
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+code {
+  font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
